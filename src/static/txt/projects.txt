@@ -1,0 +1,8 @@
+arcade fonts    | https://fonts.hexed.pw                 | a font engine made by <a href="https://nfgworld.com">NFG</a>
+btcent          | https://btc.hexed.pw                   | shows 50 cents in bitcoin ahah lmao so original bro
+civ 5 drafter   | https://civ.hexed.pw                   | randomizing nations in civ 5 translated in Russian
+delta icons     | https://github.com/Delta-Icons/android | I make icons and do some DevOps stuff
+ds map viewer   | https://ds.hexed.pw                    | dark souls map viewer made by <a href="https://github.com/colevk/dark-souls-map-viewer">colevk</a>
+drivedroid repo | https://dd.hexed.pw                    | auto updatable repo with various distros
+ip address      | https://ip.hexed.pw                    | shows your public ip address, available via curl
+sm2k ost        | https://sm2k.hexed.pw                  | counts how much days we live without sm2k ost in hq

@@ -1,0 +1,4 @@
+colorscheme       | chris kempson | http://chriskempson.com     | http://chriskempson.com/projects/base16                    
+fancyindex theme  | schneidmaster | https://schneid.io          | https://github.com/schneidmaster/nginx-fancyindex-console  
+font              | tonsky        | https://tonsky.me           | https://github.com/tonsky/FiraCode                         
+typewriter script | rstacruz      | https://ricostacruz.com     | https://github.com/rstacruz/typish

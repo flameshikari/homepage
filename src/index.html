@@ -1,0 +1,112 @@
+TITLE="Home @ ${DOMAIN}"
+DESCRIPTION="flameshikari's homepage"
+
+cat << EOF
+<!doctype html>
+<html oncontextmenu="return!1" ondragstart="return!1">
+  <head>
+    <title>${TITLE}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=metaice-width, initial-scale=1, maximum-scale=1, user-scalable=yes"/>
+    <meta name="description" content="${DESCRIPTION}"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${TITLE}">
+    <meta name="twitter:description" content="${DESCRIPTION}">
+    <meta name="twitter:image" content="/img/preview.png">
+    <meta property="twitter:domain" content="${DOMAIN}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="${TITLE}">
+    <meta property="og:description" content="${DESCRIPTION}">
+    <meta property="og:image" content="/img/preview.png">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/core.css"/>
+  </head>
+  <body>
+    <span id="index" class="cursor"></span>
+    <noscript>Seems JavaScript is disabled or you're using too old browser. <a href="https://txt.hexed.pw">Legacy version!</a></noscript>
+    <script src="/js/typish.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=String.prototype.startsWith"></script>
+    <script src="/js/core.js"></script>
+    <script>
+      var stdout
+      var id = 'index'
+      var ip = '10.2.4.8'
+      
+      var names = ["evgeny", "ユ ー ジ ー ン", "eugene", "[juːˈʤiːn]", "евгений", "flameshikari"]
+      var names_string = '<a id="names" onclick="cycle(this.id)">{0}</a>'.format(names[names.length - 1])
+
+      var ageRaw = calculateAge(27, 05, 1998)
+      var ages = [
+        ageBin = '0b{0}'.format(ageRaw.toString(2)),
+        ageOct = '0o{0}'.format(ageRaw.toString(8)),
+        ageDec = '0d{0}'.format(ageRaw),
+        ageRom = '0r{0}'.format(calculateRoman(ageRaw)),
+        ageHex = '0x{0}'.format(ageRaw.toString(16).toUpperCase())
+      ]
+      var ages_string = '<a id="ages" onclick="cycle(this.id)">{0}</a>'.format(ages[ages.length - 1])
+      
+      var about = 'sup, i\'m {0}, a {1} lvl tech enthusiast from {2}'.format(names_string, ages_string, swap('motherland', 'russia', true))
+      
+      function matrix () {
+        stdout
+          .del(1)
+          .type('!') .wait(wait*5) .del(1)
+          .type('sudo -i') .wait(wait) .type('\n') .then(scroll)
+        .then(function () {
+          output('[sudo] password for flameshikari: ') }) .wait(wait * 10) .type('\n') .then(scroll)
+        .type('~', 'workdir', 0) .type(' # ', 'prompt', 0) .wait(wait)
+          .type('nmap -v -sS -O {0}'.format(ip)) .wait(wait) .type('\n') .then(scroll)
+        .then(function () {
+          output('Starting nmap V. 2.54BETA25', '${THEME_BASE0B}') }) .type('\n') .then(scroll) .wait(wait * 10)
+        .then(function () {
+          output( 'Insufficient responses for TCP sequencing (3), OS detection may be less accurate<br>' +
+                  'Interesting ports on {0}<br>'.format(ip) +
+                  '(The 1539 ports scanned but not shown below are in state: closed)<br>' +
+                  'Port       State       Service<br>' +
+                  '22/tcp     open        ssh<br>' +
+                  '70/tcp     open        gopher<br>' +
+                  '666/tcp    open        doom<br><br>' +
+                  'No exact OS matches for host<br><br>' +
+                  'Nmap run completed -- 1 IP address (1 host up) scanneds', '${THEME_BASE0B}') }) .type('\n') .then(scroll) .wait(wait)
+        .type('~', 'workdir', 0) .type(' # ', 'prompt', 0) .wait(wait * 5)
+          .type('sshnuke {0} --rootpw=\'Z10N0101\''.format(ip)) .wait(wait) .type('\n') .then(scroll)
+        .then(function () {
+          output('Connecting to {0}:ssh '.format(ip), '${THEME_BASE0B}') })
+          .type('...', '<font color="${THEME_BASE0B}">', 50) .wait(wait)
+          .type(' successful.', '<font color="${THEME_BASE0B}">', 0) .type('\n') .then(scroll)
+        .then(function () {
+          output('Attempting to exploit SSHv1 CRC32 ', '${THEME_BASE0B}') })
+          .type('...', '<font color="${THEME_BASE0B}">', 100) .wait(wait)
+          .type(' successful.', '<font color="${THEME_BASE0B}">', 0) .type('\n') .then(scroll)
+        .then(function () {
+          output( 'Reseting root password to \'Z10N0101\'<br>' +
+                  'System open: Access Level <9>', '${THEME_BASE0B}') }) .type('\n') .then(scroll)
+        .type('~', 'workdir', 0) .type(' # ', 'prompt', 0) .wait(wait * 5)
+          .type('ssh root@{0} \'cat ~/virus.tgz\' | tar xzf -'.format(ip)) .wait(wait) .type('\n') .then(scroll)
+        .then(function () {
+          output('root@{0}\'s password: '.format(ip)) }) .wait(wait * 10) .type('\n') .then(scroll)
+        .type('~', 'workdir', 0) .type(' # ', 'prompt', 0) .wait(wait * 5)
+          .type('./virus/shellshock') .wait(wait) .type('\n') .then(scroll) .wait(wait * 5)
+        .then(function () { this.el.className += '-nocursor'; })
+        .then(function () {
+          output('<font class="blink" color="${THEME_BASE0B}">-- THE MATRIX HAS YOU --</font>') }) .then(scroll)
+      }
+      stdout = typish('#' + id) .speed(speed)
+        .type('~', 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('about') .wait(wait) .type('\n') .then(scroll)
+        .then(function () {
+          output(about, '${THEME_BASE0B}') }) .type('\n') .then(scroll)
+        .type('~', 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('links') .wait(wait) .type('\n') .then(scroll)
+        .then(function () {
+          output(listLinks('/txt/links.txt')) }) .type('\n') .then(scroll)
+        .type('~', 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('ls') .wait(wait) .type('\n') .then(scroll)
+        .then(function () {
+          output(ls(['games', 'meta', 'storage', 'projects', 'logs'], '${THEME_BASE09}')) }) .type('\n') .then(scroll)
+        .type('~', 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('?', '<a onclick="matrix()">')
+    </script>
+  </body>
+</html>
+EOF

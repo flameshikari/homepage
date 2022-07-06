@@ -1,0 +1,45 @@
+TITLE="Games @ ${DOMAIN}"
+DESCRIPTION="game completion lists"
+
+cat << EOF
+<!doctype html>
+<html oncontextmenu="return!1" ondragstart="return!1">
+  <head>
+    <title>${TITLE}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=metaice-width, initial-scale=1, maximum-scale=1, user-scalable=yes"/>
+    <meta name="robots" content="noindex"/>
+    <meta name="description" content="${DESCRIPTION}"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${TITLE}">
+    <meta name="twitter:description" content="${DESCRIPTION}">
+    <meta name="twitter:image" content="/img/preview.png">
+    <meta property="twitter:domain" content="${DOMAIN}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="${TITLE}">
+    <meta property="og:description" content="${DESCRIPTION}">
+    <meta property="og:image" content="/img/preview.png">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/core.css"/>
+  </head>
+  <body>
+    <span id="games" class="cursor"></span>
+    <script src="/js/typish.js"></script>
+    <script src="/js/core.js"></script>
+    <script>
+      var id = 'games'
+      typish('#' + id) .speed(speed)
+        .type(id, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('singleplayer') .wait(wait) .type('\n')
+          .then(function () {
+            output(listGames('/txt/singleplayer.txt') + '<font color="${THEME_BASE03}"># the list of beaten games (at least once) from different platforms<br># ' + totalGames + ' singleplayer games in total</font>') }) .type('\n') .then(scroll)
+        .type(id, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('multiplayer') .wait(wait) .type('\n')
+          .then(function () {
+            output(listGames('/txt/multiplayer.txt') + '<font color="${THEME_BASE03}"># ' + totalGames + ' multiplayer games in total that I played a lot (or a bit)</font>') }) .type('\n') .then(scroll)
+        .type(id, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('cd', '<a href="/">') .type(' ', 0) .type('-', '<a onclick="window.history.back()">')
+    </script>
+  </body>
+</html>
+EOF

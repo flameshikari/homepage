@@ -1,0 +1,39 @@
+TITLE="Code <!--# echo var='status' default='' --> @ ${DOMAIN}"
+DESCRIPTION="does this page exists?"
+
+cat << EOF
+<!doctype html>
+<html oncontextmenu="return!1" ondragstart="return!1">
+  <head>
+    <title>${TITLE}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=metaice-width, initial-scale=1, maximum-scale=1, user-scalable=yes"/>
+    <meta name="robots" content="noindex"/>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/core.css"/>
+  </head>
+  <body>
+    <span id="error" class="cursor"></span>
+    <script src="/js/typish.js"></script>
+    <script src="/js/core.js"></script>
+    <script>
+      var statusMessage = "<!--# echo var='status_text' default='Something Is Wrong' -->"
+      var statusCode = "<!--# echo var='status' default='' -->"
+      var id = 'error'
+      var workdir = window.location.pathname.split('/').pop()
+      if (workdir == '') { workdir = 'error' }
+      typish('#' + id) .speed(30)
+        .type(workdir, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('echo \$STATUS_MESSAGE') .wait(wait) .type('\n')
+          .then(function () {
+            output('Whoops, {0}! ¯\\\_(ツ)_/¯'.format(statusMessage.toLowerCase()), '${THEME_BASE0B}') }) .type('\n') .then(scroll)
+        .type(workdir, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('echo \$STATUS_CODE') .wait(wait) .type('\n')
+          .then(function () {
+            output('つ ◕_◕ ༽つ {0}'.format(statusCode), '${THEME_BASE0B}') }) .type('\n') .then(scroll)
+        .type(workdir, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('cd', '<a href="/">') .type(' ', 0) .type('-', '<a onclick="window.history.back()">')
+    </script>
+  </body>
+</html>
+EOF

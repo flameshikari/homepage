@@ -1,0 +1,37 @@
+TITLE="Storage @ ${DOMAIN}"
+DESCRIPTION="directory listing with cool stuff"
+
+cat << EOF
+<!doctype html>
+<html oncontextmenu="return!1">
+  <head>
+    <title>${TITLE}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=metaice-width, initial-scale=1, maximum-scale=1, user-scalable=yes"/>
+    <meta name="robots" content="noindex"/>
+    <meta name="description" content="${DESCRIPTION}"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${TITLE}">
+    <meta name="twitter:description" content="${DESCRIPTION}">
+    <meta name="twitter:image" content="/img/preview.png">
+    <meta property="twitter:domain" content="${DOMAIN}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="${TITLE}">
+    <meta property="og:description" content="${DESCRIPTION}">
+    <meta property="og:image" content="/img/preview.png">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/core.css"/>
+    <link rel="stylesheet" href="/css/fancyindex.css"/>
+  </head>
+  <body>
+    <div class="box box-breadcrumbs">
+      <div class="box-header">
+        <div class="box-header-content">
+          <div id="breadcrumbs" class="breadcrumbs">
+            <a href="#"></a>
+          </div>
+        </div>
+      </div>
+      <div class="box-content clearfix">
+      <h1>Index of:
+EOF

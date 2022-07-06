@@ -1,0 +1,100 @@
+cat << EOF
+@media (orientation: portrait) {
+  td.date, td.size {
+    display: none;
+  }
+}
+
+a {
+  color: #${THEME_BASE07};
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+  display: table;
+  line-height: 0;
+  content: '';
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.box {
+  width: 100%;
+}
+
+.box .box-header {
+  font-style: normal;
+  height: 35px;
+}
+
+.box .box-header .box-header-content {
+  padding: 12px 20px;
+  position: relative;
+}
+
+.box.box-breadcrumbs .box-header {
+  height: auto;
+}
+
+.box.box-breadcrumbs .box-header-content {
+  padding: 0;
+}
+
+.breadcrumbs a {
+  position: relative;
+  display: inline-block;
+}
+
+.breadcrumbs a:after {
+  display: block;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+}
+
+tbody tr:first-child {
+  display: none;
+}
+
+tr {
+  color: #${THEME_BASE03};
+}
+
+thead {
+  display: none;
+}
+
+h1 {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#list {
+  padding: 0;
+  width: 100%;
+}
+
+.link {
+  padding: 0;
+}
+
+.size {
+  text-align: right;
+  padding-right: 1em;
+}
+
+tr td:last-child {
+  width: 13em;
+}
+EOF

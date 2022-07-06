@@ -1,0 +1,15 @@
+mail      | F8F8F8 | swap('mail', 'mail@hexed.pw', false)
+telegram  | 86C1B9 | https://t.me/flameshikari
+github    | 585858 | https://github.com/flameshikari
+steam     | B8B8B8 | https://steamcommunity.com/id/flameshikari
+lastfm    | AB4642 | https://last.fm/user/flameshikari
+instagram | BA8BAF | https://instagram.com/flameshikari.jpg
+spotify   | A1B56C | https://open.spotify.com/user/26malhntvog17jfx7cmg5ry44
+discord   | BA8BAF | swap('discord', 'flameshikari#6477', false)
+trakt     | AB4642 | https://trakt.tv/users/flameshikari
+exophase  | 7CAFC2 | https://exophase.com/user/flameshikari
+youtube   | AB4642 | https://youtube.com/channel/UCRtaydcCQ7DiB55XaF0-dPg
+battlelog | 7CAFC2 | https://battlelog.com/u/flameshikari
+gog       | BA8BAF | https://gog.com/u/flameshikari
+battlenet | 7CAFC2 | swap('battlenet', 'flameshikari#21578', false)
+origin    | DC9656 | swap('origin', 'flameshikari', false)

@@ -1,0 +1,17 @@
+version: "3.7"
+
+networks:
+  docker:
+    name: docker
+    external: true
+
+services:
+  homepage:
+    image: flameshikari/homepage
+    container_name: homepage
+    build: .
+    volumes:
+      - /home/flameshikari/docs/storage:/site/storage
+    networks:
+      - docker
+

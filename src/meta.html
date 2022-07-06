@@ -1,0 +1,45 @@
+TITLE="Meta @ ${DOMAIN}"
+DESCRIPTION="credits and stats"
+
+cat << EOF
+<!doctype html>
+<html oncontextmenu="return!1" ondragstart="return!1">
+  <head>
+    <title>${TITLE}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=metaice-width, initial-scale=1, maximum-scale=1, user-scalable=yes"/>
+    <meta name="robots" content="noindex"/>
+    <meta name="description" content="${DESCRIPTION}"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${TITLE}">
+    <meta name="twitter:description" content="${DESCRIPTION}">
+    <meta name="twitter:image" content="/img/preview.png">
+    <meta property="twitter:domain" content="${DOMAIN}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="${TITLE}">
+    <meta property="og:description" content="${DESCRIPTION}">
+    <meta property="og:image" content="/img/preview.png">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/core.css"/>
+  </head>
+  <body>
+    <span id="meta" class="cursor"></span>
+    <script src="/js/typish.js"></script>
+    <script src="/js/core.js"></script>
+    <script>
+      var id = 'meta', ip = "${DOMAIN}/ip"
+      typish('#' + id) .speed(speed)
+        .type(id, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('credits') .wait(wait) .type('\n')
+          .then(function () {
+            output(make('/txt/meta.txt', '<font color="${THEME_BASE07}">— <a target="_blank" href="{3}">{0}</a> by <a target="_blank" href="{2}">{1}</a></font>') + '<br><font color="${THEME_BASE03}"># etc.; many thanks to these people & companies <3') }) .type('\n') .then(scroll)
+        .type(id, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('stats') .wait(wait) .type('\n')
+          .then(function () {
+            output('— your ip: {0} <font color="${THEME_BASE03}"># curl -sL <a href="/ip">{1}</a></font><br>'.format(curl('/ip'), ip)) }) .then(scroll)
+        .type(id, 'workdir', 0) .type(' $ ', 'prompt', 0) .wait(wait)
+          .type('cd', '<a href="/">') .type(' ', 0) .type('-', '<a onclick="window.history.back()">')
+    </script>
+  </body>
+</html>
+EOF
