@@ -5,20 +5,17 @@ cat << EOF
       var segments = window.location.pathname.split('/')
       var breadcrumbs = ''
       var currentPath = '/'
-      var nextcloudPath = '/'
       for (var i = 0; i < segments.length; i++) {
         if (segments[i] !== '') {
           currentPath += segments[i] + '/'
           if (i == 1) continue
-          nextcloudPath += segments[i] + '/'
           breadcrumbs += '/<a href="' +  currentPath + '">' + window.unescape(segments[i]) + '</a>'
         } else if (segments.length - 1 !== i) {
           currentPath += ''
           breadcrumbs += '<span class="workdir">storage</span><span class="prompt"> $ </span><span>ls -l <a href="/storage">.</a></span>'
         }
       }
-      nextcloud = '<a href="https://cloud.hexed.pw/s/storage?path=' + nextcloudPath + '"><font color="${THEME_BASE03}">nc</font></a>'
-      document.getElementById('breadcrumbs').innerHTML = breadcrumbs + ' <font color="${THEME_BASE03}"># ' + nextcloud + "</font>"
+      document.getElementById('breadcrumbs').innerHTML = breadcrumbs
     </script>
     <span class="workdir">storage</span><span class="prompt"> $ </span><span><a href="/">cd</a> <a href="..">..</a></span>
   </body>
