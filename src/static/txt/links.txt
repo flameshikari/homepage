@@ -7,6 +7,7 @@ instagram | BA8BAF | https://instagram.com/flameshikari.jpg
 spotify   | A1B56C | https://open.spotify.com/user/26malhntvog17jfx7cmg5ry44
 discord   | BA8BAF | swap('discord', 'flameshikari#6477', false)
 trakt     | AB4642 | https://trakt.tv/users/flameshikari
+strava    | DC9656 | https://strava.com/athletes/flameshikari
 exophase  | 7CAFC2 | https://exophase.com/user/flameshikari
 youtube   | AB4642 | https://youtube.com/channel/UCRtaydcCQ7DiB55XaF0-dPg
 battlelog | 7CAFC2 | https://battlelog.com/u/flameshikari

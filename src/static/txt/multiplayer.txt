@@ -18,3 +18,5 @@ destiny 2
 quake 3 arena
 tom clancy's rainbow six siege
 titanfall 2
+valorant
+apex legends
