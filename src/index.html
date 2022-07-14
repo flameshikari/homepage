@@ -32,7 +32,7 @@ cat << EOF
       var id = 'index'
       var ip = '10.2.4.8'
       
-      var names = ["evgeny", "ユ ー ジ ー ン", "eugene", "[juːˈʤiːn]", "евгений", "flameshikari"]
+      var names = ["evgeny", "ユ ー ジ ー ン", "eugene", "[ju:'dʒi:n]", "евгений", "εὐγενής", "flameshikari"]
       var names_string = '<a id="names" onclick="cycle(this.id)">{0}</a>'.format(names[names.length - 1])
 
       var ageRaw = calculateAge(27, 05, 1998)
@@ -44,8 +44,8 @@ cat << EOF
         ageHex = '0x{0}'.format(ageRaw.toString(16).toUpperCase())
       ]
       var ages_string = '<a id="ages" onclick="cycle(this.id)">{0}</a>'.format(ages[ages.length - 1])
-      
-      var about = 'sup, i\'m {0}, a {1} lvl tech enthusiast from {2}'.format(names_string, ages_string, swap('motherland', 'russia', true))
+
+      var about = 'sup, i\'m {0}, a {1} lvl tech enthusiast from {2} who calculates ∞'.format(names_string, ages_string, swap('motherland', 'russia', true))
       
       function matrix () {
         stdout
